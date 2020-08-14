@@ -149,7 +149,7 @@ module ArSync::ModelBase::ClassMethods
 
     after_initialize do
       @_initialized = true
-    end
+    end if respond_to?(:after_initialize)
 
     before_destroy do
       @_sync_parents_info_before_mutation ||= _sync_current_parents_info
